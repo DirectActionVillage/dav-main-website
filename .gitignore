@@ -1,15 +1,11 @@
 # Hidden Files
 .*
-!.vscode/
 
 # VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
-!*.code-workspace
+# Ignore the whole directory. Git does not descend into an ignored directory,
+# so nothing inside can be re-included without un-ignoring the directory first.
+.vscode/
+*.code-workspace
 
 # Built Visual Studio Code Extensions
 *.vsix
