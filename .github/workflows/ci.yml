@@ -1,11 +1,15 @@
 name: Continuous Integration
 
-# Trigger on pushes and pull requests to the main branch.
+# Trigger on pushes and pull requests to the main branch, plus a manual
+# trigger. The manual one matters when a run never happened: during an Actions
+# incident queued jobs get cancelled without ever starting, which leaves a
+# commit on main with no CI result and nothing to re-run.
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 # Least-privilege default for every job; jobs widen this only when needed.
 permissions:
