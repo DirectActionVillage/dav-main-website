@@ -1,6 +1,6 @@
 ## Project Overview
 
-This repo contains a simple website for the Maine-based Midcoast Solidarity organization. It is built with vanilla HTML and CSS. There are no frameworks, no build steps, and [**NO JAVASCRIPT**](https://disable-javascript.org/) (in deployment, but the maintainers still use `npm` for dev tooling). Just open `index.html` in a browser.
+This repo contains a simple website for the Maine-based Direct Action Village organization. It is built with vanilla HTML and CSS. There are no frameworks, no build steps, and [**NO JAVASCRIPT**](https://disable-javascript.org/) (in deployment, but the maintainers still use `npm` for dev tooling). Just open `index.html` in a browser.
 
 ## Viewing the site
 
@@ -45,7 +45,6 @@ dav-main-website
 │   └── pre-commit               # `husky` pre commit hooks
 ├── images                       # folder containing all website pics
 │   └── books                    # subfolder for book covers
-├── handbook_101525.html         # html export of the org handbook
 └── index.html                   # main website code
 ```
 

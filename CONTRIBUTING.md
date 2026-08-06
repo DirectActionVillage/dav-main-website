@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping out with the Midcoast Solidarity site. This is a static HTML and CSS site with no build step and no shipped JavaScript. The `npm` setup below exists only for local dev tooling (formatting, linting, accessibility checks); none of it reaches the deployed site.
+Thanks for helping out with the Direct Action Village site. This is a static HTML and CSS site with no build step and no shipped JavaScript. The `npm` setup below exists only for local dev tooling (formatting, linting, accessibility checks); none of it reaches the deployed site.
 
 ## Development
 
