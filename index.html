@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Direct Action Village</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.webp" />
+    <meta name="description" content="Meeting and community potluck" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; font-src 'self' data:;"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      /* 22vh keeps anchored sections clear of the sticky header on scroll. */
+      html {
+        scroll-padding-top: 22vh;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+      }
+
+      /* Per-tag font sizes. */
+      h1 {
+        font-size: 2.5em;
+      }
+
+      h2 {
+        font-size: 2.25em;
+      }
+
+      h3 {
+        font-size: 2em;
+        text-decoration: underline;
+      }
+
+      h4 {
+        font-size: 1.75em;
+      }
+
+      p {
+        font-size: 1.5em;
+      }
+
+      /* Sticky so the header stays put on scroll; box-shadow separates it from content. */
+      header {
+        padding: 0 10px;
+        text-align: left;
+        background: #e5d8b3;
+        color: black;
+        display: flex;
+        flex-flow: row wrap;
+        place-content: stretch space-around;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        box-shadow: 5px 5px 9px 1px rgb(0 0 0 / 52%);
+        min-height: 20vh;
+        max-height: 34vh;
+      }
+
+      .heading {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 300%;
+        max-height: 200px;
+        text-align: center;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      /* Block so the link fills the button: text-align centers the label and
+         the hover highlight covers the whole button. */
+
+      .navbar a {
+        display: block;
+        color: black;
+        padding: 0.5em 0.75em;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 0.4em;
+      }
+
+      /* Invert colors on hover for a clear affordance. */
+      .navbar a:hover {
+        background-color: #155c29;
+        color: #e5d8b3;
+      }
+
+      /* No fixed height or max-width: each button sizes to its label, and the
+         clamp scales the type with the viewport so labels never overflow. */
+
+      .navbar-button {
+        background-color: white;
+        border-radius: 0.4em;
+        margin: 2px;
+        font-size: clamp(1.25em, 2.2vw, 2em);
+      }
+
+      .landing {
+        padding: 2em;
+        margin: 2em;
+        background: #155c29;
+        color: #e5d8b3;
+        display: flex;
+        align-items: center;
+        box-shadow: 10px 10px 14px 1px rgb(0 0 0 / 52%);
+      }
+
+      .row {
+        display: flex;
+      }
+
+      .column {
+        flex: 50%;
+        padding: 1em;
+      }
+
+      /* 10vw side margins keep a readable measure on wide screens. */
+      .main {
+        padding: calc(25px + 2vw) 2vw;
+        margin-inline: 10vw;
+        width: auto;
+        height: 80%;
+        background-color: #e5d8b3;
+      }
+
+      /* Centers block images. Throughout the page, images carry inline
+         max-width/max-height in vw so they scale with the viewport and never
+         overflow their column. */
+
+      .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .bookshelf {
+        display: inline-flex;
+      }
+
+      .box {
+        height: 28em;
+        width: 15em;
+        background-color: white;
+        border-radius: 1em;
+        padding: 0.5em;
+        display: inline-grid;
+        box-shadow: 0.6em 0.6em 0.6em 0.6em rgb(0 0 0 / 52%);
+      }
+
+      .cover {
+        max-height: 15em;
+        max-width: 10em;
+        margin: auto;
+      }
+
+      .title {
+        font-weight: bold;
+        font-family: Optima, Arial, Helvetica, sans-serif;
+        font-style: italic;
+        font-size: 1em;
+      }
+
+      .author {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-align: left;
+        font-size: 1em;
+      }
+
+      footer {
+        padding: 10px 40px;
+        background: #155c29;
+        color: #e5d8b3;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      /* Phone overrides: stack to a single full-width column and shrink type. */
+      @media only screen and (width <= 620px) {
+        header,
+        .landing,
+        .navbar,
+        .row {
+          width: 100%;
+          margin: 0;
+          padding: 1px;
+        }
+
+        .navbar a {
+          padding: 0.3em 0.4em;
+        }
+
+        body {
+          font-size: small;
+        }
+
+        .main {
+          width: 100%;
+          margin: 0;
+          padding: 5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div style="max-height: 200px; text-align: right">
+        <img
+          src="images/logo.webp"
+          alt="The Direct Action Village logo, which is a raised solidarity fist with a star on the wrist."
+          width="216"
+          height="216"
+          style="max-width: 11vh; max-height: 11vh"
+        />
+      </div>
+      <div class="heading" style="display: flex; align-items: center">
+        Direct Action Village
+      </div>
+
+      <div
+        class="navbar"
+        style="display: flex; flex-wrap: wrap; align-items: flex-end"
+      >
+        <div class="navbar-button">
+          <a href="#About">About</a>
+        </div>
+
+        <div class="navbar-button">
+          <a href="#CAC">Capital Area Commons</a>
+        </div>
+        <div class="navbar-button">
+          <a href="#NT">New Trajectories</a>
+        </div>
+        <div class="navbar-button">
+          <a href="#VF">Villiage Fund</a>
+        </div>
+        <div class="navbar-button">
+          <a href="#Resources">Resources</a>
+        </div>
+        <div class="navbar-button">
+          <a href="#Contact">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="landing">
+        <div class="row">
+          <div class="column">
+            <div style="display: flex; text-align: right; align-items: center">
+              <h1>
+                Join us at Plum Bakery in Gardiner, ME on the first Wednesday of
+                every month at 5:00pm for a community potluck.
+              </h1>
+            </div>
+          </div>
+          <div class="column">
+            <a
+              href="https://unsplash.com/photos/person-holding-fight-today-for-a-better-tomorrow-sign-iRAvvyWZfZY"
+              target="_blank"
+            >
+              <img
+                src="images/fight.webp"
+                alt="A cardboard sign at a climate protest with the message 'Fight Today for a Better Tomorrow'."
+                width="1000"
+                height="667"
+                style="max-width: 45vw; max-height: 30vw"
+              />
+            </a>
+            <p style="text-align: center; font-size: 1em">
+              <a
+                href="https://unsplash.com/photos/person-holding-fight-today-for-a-better-tomorrow-sign-iRAvvyWZfZY"
+                target="_blank"
+                style="color: white; text-decoration: underline; font-size: 1em"
+              >
+                Markus Spiske, Global Climate Strike (Sept 20, 2019)
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="main">
+        <div>
+          <h2>
+            Fostering a welcoming space to do the work of community connection
+            and organizing.
+          </h2>
+        </div>
+
+        <div>
+          <h3 id="About">About</h3>
+          <p>
+            Direct Action Village is a space for finding and sharing resources,
+            organizing strategies, and community. We are a hub where those who
+            need help with connect with those who can help. Come to our monthly
+            community potluck on the first Wednesday of the month.
+          </p>
+          <h4>Our Mission</h4>
+          <p>
+            Our mission is to foster a welcoming space to faciltate community
+            connection and organizing.
+          </p>
+          <h4>Our Values</h4>
+          <p>
+            We believe everyone should have the things they need to live with
+            dignity and safety.
+          </p>
+        </div>
+
+        <div>
+          <h3 id="CAC">Capital Area Commons</h3>
+          <p>
+            The Capital Area Commons (CAC) is a community of Augusta, ME capital
+            area locals that administers both the New Trajectories microgrant
+            fund and the Villiage fund stop-gap loan financial assistance
+            program.
+          </p>
+          <p>
+            Applications are selected for funding via direct vote at monthly
+            meetings. Financial contribution is not required to vote, and
+            financial donations merit no special advantage in the voting
+            process. Meetings are held on the first Wednesday of the month at
+            5:00pm at 347 Water Street in Gardiner, ME. The only requirement to
+            vote on a project is to be present at the meeting.
+          </p>
+          <p>
+            The CAC has no executive. Organizational positions are unpaid,
+            voluntary, and held on a rotational basis.
+          </p>
+        </div>
+
+        <div>
+          <h3 id="NT">New Trajectories</h3>
+          <p>
+            New Trajectories is a community-funded microgrant program aimed at
+            supporting creative projects for social good in Maine's capital
+            area.
+          </p>
+          <p>
+            Grants max out at $1,000 a month, pooled from members of CAC. Grants
+            are no-strings-attached support for community projects. Grant
+            proposals can be submitted by anyone.
+          </p>
+          <p>
+            Grant proposals are required to comply with all local, state, and
+            federal laws. Preference is given to projects that serve Maine's
+            capital area and can be accomplished within 3 months. Creativity and
+            quirkiness are encouraged!
+          </p>
+          <p>Apply for a grant here [BLANK]</p>
+          <p>Previous recipients of the New Trajectories Grant include:</p>
+
+          <ul style="font-size: 1.5em">
+            <li>The Gardiner Poetry Festival</li>
+            <li>
+              <a
+                href="https://www.instagram.com/foodnotbombskennebec/"
+                target="_blank"
+                >Food not Bombs Kennebec County</a
+              >
+            </li>
+            <li>
+              <a href="https://vaughanhomestead.org/" target="_blank"
+                >Vaughn Woods & Historic Homestead</a
+              >
+              food pantry and community gardens
+            </li>
+            <li>
+              <a href="https://www.maineyouthpower.org/" target="_blank"
+                >Maine Youth Power</a
+              >, radical teen book club
+            </li>
+          </ul>
+
+          <div>
+            <h3 id="VF">Village Fund</h3>
+            <p>
+              The Village Fund is a stop-gap assistance loan aimed at providing
+              financial relief to community members.
+            </p>
+          </div>
+
+          <div>
+            <h3 id="Resources">Resources</h3>
+            <a
+              href="https://www.instagram.com/foodnotbombskennebec/"
+              target="_blank"
+            >
+              <img
+                src="images/fnbkennebec.webp"
+                alt="The Food Not Bombs Kennebec chapter logo, which is an illustration of the solidarity fist holding a carrot."
+                width="1080"
+                height="1080"
+                style="max-width: 25vw; max-height: 25vw"
+              />
+            </a>
+            <p>
+              <b>Food not Bombs Kennebec</b>
+              <br style="line-height: 2" />
+              There is now a capital area branch of
+              <a href="https://foodnotbombs.net" target="_blank"
+                >Food Not Bombs</a
+              >
+              that serves Gardiner, Hallowell, Augusta, Waterville, and
+              everywhere in-between! Check them out on Instagram
+              <a
+                href="https://www.instagram.com/foodnotbombskennebec/"
+                target="_blank"
+                >@foodnotbombskennebec</a
+              >.
+            </p>
+
+            <p>
+              <b>Miles Delivers Action Coalition (MDAC)</b>
+              <br style="line-height: 2" />
+              MDAC is a group organizing to precent the closure of another rural
+              labor & delivery unit in Maine. They are currently organizing to
+              keep the Miles Labor & Delivery unit at MaineHealth's Lincoln
+              Hospital in Damariscotta, Maine open. They also have a wide
+              variety of volunteer opportunities. Check out their website at
+              <a href="https://milesdelivers.org" target="_blank"
+                >milesdelivers.org</a
+              >.
+            </p>
+
+            <p>
+              <b>Maine Breathes Easy (MEBE)</b>
+              <br style="line-height: 2" />
+              MEBE is a diverse and unranked group of community members that
+              practice precautions against the dangerous impacts of COVID and
+              other serious illnesses. They offer free support, connection,
+              information, testing, personal protective equipment, and more
+              through consensus-driven activities. Visit their website to learn
+              more or to request free masks at
+              <a href="https://mainebreatheseasy.org/" target="_blank"
+                >mainebreatheseasy.org</a
+              >.
+            </p>
+
+            <p>
+              <b>ICE Response</b>
+            </p>
+            <ul style="font-size: 1.5em">
+              <li>
+                <a
+                  href="https://maineimmigrantrights.org/mirc-resource-hub/"
+                  target="_blank"
+                  >Maine Immigrants' Rights Coalition - Welcome to the Maine
+                  Immigrant Resource Hub &amp; Hotline</a
+                >
+              </li>
+              <li>
+                <a href="https://ilapmaine.org/know-your-rights" target="_blank"
+                  >ILAP Maine - Know Your Rights</a
+                >
+              </li>
+              <li>
+                <a href="https://www.activatemaine.com/" target="_blank"
+                  >Activate Maine</a
+                >
+              </li>
+              <li>
+                <a href="https://www.mainesolidarity.org/" target="_blank"
+                  >Maine Solidarity Fund</a
+                >
+              </li>
+            </ul>
+            <p><b>Midcoast Food</b></p>
+            <a href="https://midcoastfood.me" target="_blank">
+              <img
+                src="images/midcoastfood.webp"
+                alt="The Midcoast Food logo, which is a simplified illustration of a circle containing a loaf of bread, a lighthouse, a wave, and a heart alongside the website name 'MicoastFood.me'."
+                width="883"
+                height="327"
+                style="max-width: 67.5vw; max-height: 25vw"
+              />
+            </a>
+            <p>
+              <a href="https://midcoastfood.me" target="_blank"
+                >MidcoastFood.me</a
+              >
+              maintains a crowd-sourced statewide database of food resources
+              across Maine. Find a resource near you or contribute a new
+              listing!
+            </p>
+          </div>
+        </div>
+        <div>
+          <h3 id="Contact">Contact</h3>
+          <h4>Connect on Social Media</h4>
+          <div style="display: flex; justify-content: space-evenly">
+            <a href="https://www.instagram.com/" target="_blank">
+              <img
+                src="images/instagram.webp"
+                alt="The Instagram logo. This image is clickable and takes you to the Direct Action Village Instagram page."
+                width="418"
+                height="418"
+                style="max-width: 18vw; max-height: 18vw"
+              />
+            </a>
+
+            <a href="https://github.com/DirectActionVillage/" target="_blank">
+              <img
+                src="images/github.webp"
+                alt="The GitHub logo. This image is clickable and takes you to the Direct Action Village GitHub page."
+                width="1280"
+                height="1280"
+                style="max-width: 18vw; max-height: 18vw"
+              />
+            </a>
+          </div>
+          <p>
+            PS: Our GitHub is also where the
+            <a
+              href="https://github.com/DirectActionVillage/dav-main-website/tree/main"
+              target="_blank"
+              >source code</a
+            >
+            for this website lives (and is even hosted for free via
+            <a href="https://docs.github.com/en/pages" target="_blank"
+              >GitHub Pages</a
+            >)!
+          </p>
+        </div>
+        <h4>Join our Email List or Get Involved</h4>
+        <p>
+          <a href="mailto:directactionvilliage@proton.me" target="_blank"
+            >Email us to get added to the Mailing List.</a
+          >
+        </p>
+      </div>
+    </main>
+
+    <div>
+      <footer>
+        <p>We keep us safe</p>
+        <p>
+          <a
+            href="mailto:directactionvillage@proton.me"
+            style="text-decoration: none; color: #e5d8b3"
+            target="_blank"
+            >directactionvillage@proton.me</a
+          >
+        </p>
+        <p>2026</p>
+      </footer>
+    </div>
+  </body>
+</html>
