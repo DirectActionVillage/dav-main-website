@@ -1,0 +1,35 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "ignorePaths": [
+    "node_modules/**",
+    "package-lock.json"
+  ],
+  "words": [
+    "Bookclub",
+    "colr",
+    "Damariscotta",
+    "directactionvillage",
+    "direnv",
+    "foodnotbombskennebec",
+    "GHSA",
+    "Hallowell",
+    "ILAP",
+    "Kennebec",
+    "mainebreatheseasy",
+    "Markuplint",
+    "Markus",
+    "MDAC",
+    "MEBE",
+    "microgrant",
+    "Midcoast",
+    "milesdelivers",
+    "misconfig",
+    "nvmrc",
+    "pipx",
+    "Spiske",
+    "unranked",
+    "Waterville",
+    "WCAG"
+  ]
+}
