@@ -1,5 +1,5 @@
 {
-  "urls": ["./index.html"],
+  "urls": ["./index.html", "./data_policy_081926.html"],
   "defaults": {
     "standard": "WCAG2AA",
     "timeout": 30000,

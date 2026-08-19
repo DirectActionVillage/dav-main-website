@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Direct Action Village Data Policy</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.webp" />
+    <meta name="description" content="What our forms collect and who sees it" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; font-src 'self' data:;"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+      }
+
+      /* Per-tag font sizes. This page has one h1 and then section headings, so
+         h2 carries the underlined treatment that h3 has on the landing page. */
+
+      h1 {
+        font-size: 2.5em;
+      }
+
+      h2 {
+        font-size: 2em;
+        text-decoration: underline;
+      }
+
+      p {
+        font-size: 1.5em;
+      }
+
+      /* Sticky so the header stays put on scroll; box-shadow separates it from content. */
+      header {
+        padding: 0 10px;
+        text-align: left;
+        background: #e5d8b3;
+        color: black;
+        display: flex;
+        flex-flow: row wrap;
+        place-content: stretch space-around;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        box-shadow: 5px 5px 9px 1px rgb(0 0 0 / 52%);
+        min-height: 20vh;
+        max-height: 34vh;
+      }
+
+      .heading {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 300%;
+        max-height: 200px;
+        text-align: center;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      /* Block so the link fills the button: text-align centers the label and
+         the hover highlight covers the whole button. */
+
+      .navbar a {
+        display: block;
+        color: black;
+        padding: 0.5em 0.75em;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 0.4em;
+      }
+
+      /* Invert colors on hover for a clear affordance. */
+      .navbar a:hover {
+        background-color: #155c29;
+        color: #e5d8b3;
+      }
+
+      /* No fixed height or max-width: each button sizes to its label, and the
+         clamp scales the type with the viewport so labels never overflow. */
+
+      .navbar-button {
+        background-color: white;
+        border-radius: 0.4em;
+        margin: 2px;
+        font-size: clamp(1.25em, 2.2vw, 2em);
+      }
+
+      /* 10vw side margins keep a readable measure on wide screens. */
+      .main {
+        padding: calc(25px + 2vw) 2vw;
+        margin-inline: 10vw;
+        width: auto;
+        height: 80%;
+        background-color: #e5d8b3;
+      }
+
+      footer {
+        padding: 10px 40px;
+        background: #155c29;
+        color: #e5d8b3;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      /* Phone overrides: stack to a single full-width column and shrink type. */
+      @media only screen and (width <= 620px) {
+        header,
+        .navbar {
+          width: 100%;
+          margin: 0;
+          padding: 1px;
+        }
+
+        .navbar a {
+          padding: 0.3em 0.4em;
+        }
+
+        body {
+          font-size: small;
+        }
+
+        .main {
+          width: 100%;
+          margin: 0;
+          padding: 5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div style="max-height: 200px; text-align: right">
+        <img
+          src="images/logo.webp"
+          alt="The Direct Action Village logo, which is a raised solidarity fist with a star on the wrist."
+          width="216"
+          height="216"
+          style="max-width: 11vh; max-height: 11vh"
+        />
+      </div>
+      <div class="heading" style="display: flex; align-items: center">
+        Direct Action Village
+      </div>
+
+      <div
+        class="navbar"
+        style="display: flex; flex-wrap: wrap; align-items: flex-end"
+      >
+        <div class="navbar-button">
+          <a href="index.html#About">About</a>
+        </div>
+
+        <div class="navbar-button">
+          <a href="index.html#CAC">Capital Area Commons</a>
+        </div>
+        <div class="navbar-button">
+          <a href="index.html#NT">New Trajectories</a>
+        </div>
+        <div class="navbar-button">
+          <a href="index.html#VF">Village Fund</a>
+        </div>
+        <div class="navbar-button">
+          <a href="index.html#Resources">Resources</a>
+        </div>
+        <div class="navbar-button">
+          <a href="index.html#Contact">Contact</a>
+        </div>
+        <div class="navbar-button">
+          <a href="data_policy_081926.html">Data Policy</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="main">
+        <h1>Data Policy</h1>
+        <p>Last updated August 19, 2026</p>
+        <p>
+          This is a description of what data our website and forms collect, who
+          sees that data, and what eventually happens to that data. We don't
+          have any lawyers, so this isn't a legal privacy policy. If something
+          looks wrong, tell us and we'll try to fix it!
+        </p>
+
+        <h2>Our website</h2>
+        <p>
+          Our website doesn't run any JavaScript and doesn't create or store any
+          cookies. Verify this yourself with right-click +
+          <code>Inspect</code> or with
+          <a href="https://ublockorigin.com/" target="_blank">uBlock Origin</a>.
+        </p>
+
+        <h2>Our mailing list</h2>
+        <p>
+          We only collect a name and an email address. Any name will do; it
+          doesn't have to be your real legal name. Any email address will do,
+          but we prefer a relatively anonymized address (ideally not
+          <code>firstname.lastname@provider.com</code>) and that you use a
+          privacy-respecting provider like
+          <a href="https://mail.tutanota.com/" target="_blank">Tuta</a>,
+          <a
+            href="https://riseup.net/en/email/settings/mail-accounts"
+            target="_blank"
+            >RiseUp</a
+          >, or <a href="https://mail.proton.me/" target="_blank">Proton</a>. If
+          all you have is <code>firstname.lastname@gmail.com</code>, we'll still
+          work with it and do our best to protect you, just be aware that some
+          things will be out of our control at that point (like data leakage to
+          your provider). We also don't store the IP address you signed up from.
+          We don't even write any access logs, so your IP address can't be
+          logged or stored anywhere on our side. Our newsletter emails have no
+          tracking, so we don't log opens, clicks, tracking pixels, etc.
+        </p>
+
+        <h2>Grant applications</h2>
+        <p>
+          The questions about your project proposal are required. Everything
+          about you is optional: name, email, phone, and Signal username. You
+          can even apply with no contact details at all (we just won't be able
+          to tell you if you win)! Grant applications are, by default, deleted 7
+          days after we announce that cycle's decisions (this can happen sooner
+          if you ask).
+        </p>
+
+        <h2>Where your data lives</h2>
+        <p>
+          Everything is stored (at-rest) on servers we own and manage (on-prem,
+          not a cloud service). The disks are encrypted, so they're unreadable
+          if someone walks off with them. The mailing list and the grant
+          applications live in separate databases (the part that sends the
+          newsletter can't read applications). Our backups are on our own
+          machines too! That means a copy of your records sits in a backup for a
+          while until that backup gets refreshed (yes, even if you request data
+          deletion, we're being honest that data deletion won't happen
+          instantly). For recovery purposes, we retain daily backups for 14 days
+          and weekly backups for 28 days, so the maximum amount of time between
+          deletion request and your data truly being 100% gone from our machines
+          for good is 28 days.
+        </p>
+
+        <h2>Who sees your data</h2>
+        <p>
+          We fully local-host and send out our own newsletter! We don't use any
+          company or third-party service to deliver or route the mail. Only one
+          machine in the server stack isn't strictly owned by us (it's a server
+          we rent in a non-USA country that respects
+          <a
+            href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation"
+            target="_blank"
+            >GDPR</a
+          >). That rented server:
+        </p>
+        <ul style="font-size: 1.5em">
+          <li>
+            Holds this website's certificate (so it sees whatever you type into
+            this website's forms before passing it on to our on-prem servers).
+          </li>
+          <li>
+            Sends out our newsletter (so it sees your email address if you're on
+            the mailing list).
+          </li>
+          <li>
+            Holds failure notices if emails can't be delivered to you for
+            whatever reason (until our on-prem machines collect the notices,
+            usually within minutes). Those notices also would contain your email
+            address.
+          </li>
+        </ul>
+
+        <h2>Leaving, unsubscribing, and data deletion</h2>
+        <p>
+          Every newsletter has a one-click unsubscribe link. That same link
+          opens a page where you can see what we hold, download it, and delete
+          it yourself (without needing to ask anyone). If you would rather talk
+          to a person, email us at
+          <a href="mailto:directactionvillage@proton.me"
+            >directactionvillage@proton.me</a
+          >. As mentioned above, grant applications are deleted 7 days after we
+          announce that cycle's decisions by default, but can be deleted sooner
+          upon request.
+        </p>
+
+        <h2>Stuff we can and can't prove to you</h2>
+        <p>
+          Our code is public and you can read it
+          <a href="https://github.com/DirectActionVillage" target="_blank"
+            >on our GitHub</a
+          >, but realistically you won't be able to check that the published
+          code is the same code actually running on our machines. Nobody who
+          hosts centralized online services for you can prove that! We're asking
+          you to trust us, but also being honest that nothing we've said above
+          or shown you is a guarantee. At the end of the day, you still need to
+          make your own privacy and safety decisions with your own data.
+        </p>
+      </div>
+    </main>
+
+    <div>
+      <footer>
+        <p>We keep us safe</p>
+        <p>
+          <a
+            href="mailto:directactionvillage@proton.me"
+            style="text-decoration: none; color: #e5d8b3"
+            target="_blank"
+            >directactionvillage@proton.me</a
+          >
+        </p>
+        <p>2026</p>
+      </footer>
+    </div>
+  </body>
+</html>
