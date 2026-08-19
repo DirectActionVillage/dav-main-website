@@ -47,6 +47,7 @@ dav-main-website
 │   ├── pre-commit               # `husky` pre commit hooks
 │   └── commit-msg               # checks the commit message against the house style
 ├── images                       # folder containing all website pics
+├── data_policy_081926.html      # what the forms collect and who sees it
 └── index.html                   # main website code
 ```
 
