@@ -219,53 +219,74 @@
           work with it and do our best to protect you, just be aware that some
           things will be out of our control at that point (like data leakage to
           your provider). We also don't store the IP address you signed up from.
-          We don't even write any access logs, so your IP address can't be
-          logged or stored anywhere on our side. Our newsletter emails have no
+          The newsletter software is set not to record it, and the machine
+          serving the form writes no access logs. Our newsletter emails have no
           tracking, so we don't log opens, clicks, tracking pixels, etc.
         </p>
 
         <h2>Grant applications</h2>
         <p>
-          The questions about your project proposal are required. Everything
-          about you is optional: name, email, phone, and Signal username. You
-          can even apply with no contact details at all (we just won't be able
-          to tell you if you win)! Grant applications are, by default, deleted 7
-          days after we announce that cycle's decisions (this can happen sooner
-          if you ask).
+          <strong>There is no grant form yet.</strong> Nothing can be applied
+          for today, so nothing is stored or deleted. Here is how it will work
+          when we turn it on.
+        </p>
+        <p>
+          The questions about your project proposal will be required. Everything
+          about you will be optional: name, email, phone, and Signal username.
+          You will be able to apply with no contact details at all (we just
+          won't be able to tell you if you win)! Grant applications will be
+          deleted 7 days after we announce that cycle's decisions by default,
+          and sooner if you ask.
         </p>
 
         <h2>Where your data lives</h2>
         <p>
-          Everything is stored (at-rest) on servers we own and manage (on-prem,
-          not a cloud service). The disks are encrypted, so they're unreadable
-          if someone walks off with them. The mailing list and the grant
-          applications live in separate databases (the part that sends the
-          newsletter can't read applications). Our backups are on our own
-          machines too! That means a copy of your records sits in a backup for a
-          while until that backup gets refreshed (yes, even if you request data
-          deletion, we're being honest that data deletion won't happen
-          instantly). For recovery purposes, we retain daily backups for 14 days
-          and weekly backups for 28 days, so the maximum amount of time between
-          deletion request and your data truly being 100% gone from our machines
-          for good is 28 days.
+          The mailing list lives (at-rest) on machines we own and manage
+          (on-prem, not a cloud service), and so do our backups. The disks are
+          encrypted, so they're unreadable if someone walks off with them. One
+          machine we rent does hold your email address for a while, and the next
+          section says when and why. When the grant form exists it will use a
+          separate database, so the part that sends the newsletter won't be able
+          to read applications.
+        </p>
+        <p>
+          A copy of your records sits in a backup until that backup gets
+          refreshed. So even if you ask us to delete your data, deletion won't
+          be instant. For recovery we keep the last 7 daily backups and the last
+          4 weekly ones. That's a rolling window, so there's no single number we
+          can promise you. In practice the oldest copy is around a month old,
+          and at worst about six weeks. On 22 September 2026 the oldest was 30
+          days.
         </p>
 
         <h2>Who sees your data</h2>
         <p>
           We fully local-host and send out our own newsletter! We don't use any
-          company or third-party service to deliver or route the mail. Only one
-          machine in the server stack isn't strictly owned by us (it's a server
-          we rent in a non-USA country that respects
+          company or third-party service to deliver or route the mail. Two
+          machines in that path aren't ours.
+        </p>
+        <p>
+          <strong>GitHub</strong> serves this website, including the page you're
+          reading. GitHub is a USA company and holds the certificate for
+          <code>directactionvillage.org</code>, so it can see which pages you
+          look at here. It never sees your email address: this website has no
+          form on it. The signup form lives at
+          <code>news.directactionvillage.org</code>, which GitHub does not
+          serve.
+        </p>
+        <p>
+          <strong>A server we rent</strong>, in a non-USA country that respects
           <a
             href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation"
             target="_blank"
             >GDPR</a
-          >). That rented server:
+          >, handles the mailing list. That rented server:
         </p>
         <ul style="font-size: 1.5em">
           <li>
-            Holds this website's certificate (so it sees whatever you type into
-            this website's forms before passing it on to our on-prem servers).
+            Holds the certificate for
+            <code>news.directactionvillage.org</code> (so it sees what you type
+            into the signup form before passing it on to our on-prem machines).
           </li>
           <li>
             Sends out our newsletter (so it sees your email address if you're on
@@ -278,6 +299,11 @@
             address.
           </li>
         </ul>
+        <p>
+          We rent a second server in the same country. It isn't in the path
+          above: it never touches your email address, the newsletter, or
+          anything you type into a form.
+        </p>
 
         <h2>Leaving, unsubscribing, and data deletion</h2>
         <p>
@@ -287,17 +313,18 @@
           to a person, email us at
           <a href="mailto:directactionvillage@proton.me"
             >directactionvillage@proton.me</a
-          >. As mentioned above, grant applications are deleted 7 days after we
-          announce that cycle's decisions by default, but can be deleted sooner
-          upon request.
+          >. As mentioned above, when the grant form exists, applications will
+          be deleted 7 days after we announce that cycle's decisions by default.
+          We can delete them sooner if you ask.
         </p>
 
         <h2>Stuff we can and can't prove to you</h2>
         <p>
-          Our code is public and you can read it
+          The source for this website is public and you can read it
           <a href="https://github.com/DirectActionVillage" target="_blank"
             >on our GitHub</a
-          >, but realistically you won't be able to check that the published
+          >. The code that handles your mailing list data is published there
+          too. Realistically you still won't be able to check that the published
           code is the same code actually running on our machines. Nobody who
           hosts centralized online services for you can prove that! We're asking
           you to trust us, but also being honest that nothing we've said above
