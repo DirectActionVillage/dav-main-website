@@ -261,10 +261,11 @@
           A copy of your records sits in a backup until that backup gets
           refreshed. So even if you ask us to delete your data, deletion won't
           be instant. For recovery we keep the last 7 daily backups and the last
-          4 weekly ones. That's a rolling window, so there's no single number we
-          can promise you. In practice the oldest copy is around a month old,
-          and at worst about six weeks. On 22 September 2026 the oldest was 30
-          days.
+          4 weekly ones. Our storage server also keeps a week of snapshots of
+          those backups (in case one gets damaged). We also keep the two newest
+          backups on an offsite drive, and we refresh it at least every five
+          weeks. In practice the oldest copy is around a month old, and at worst
+          about six weeks.
         </p>
 
         <h2>Who sees your data</h2>
