@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; font-src 'self' data:;"
+      content="default-src 'self'; base-uri 'self'; form-action 'self'; object-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:;"
     />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
@@ -199,7 +199,9 @@
           Our website doesn't run any JavaScript and doesn't create or store any
           cookies. Verify this yourself with right-click +
           <code>Inspect</code> or with
-          <a href="https://ublockorigin.com/" target="_blank">uBlock Origin</a>.
+          <a href="https://ublockorigin.com/" target="_blank" rel="noopener"
+            >uBlock Origin</a
+          >.
         </p>
 
         <h2>Our mailing list</h2>
@@ -209,19 +211,25 @@
           but we prefer a relatively anonymized address (ideally not
           <code>firstname.lastname@provider.com</code>) and that you use a
           privacy-respecting provider like
-          <a href="https://mail.tutanota.com/" target="_blank">Tuta</a>,
+          <a href="https://mail.tutanota.com/" target="_blank" rel="noopener"
+            >Tuta</a
+          >,
           <a
             href="https://riseup.net/en/email/settings/mail-accounts"
             target="_blank"
+            rel="noopener"
             >RiseUp</a
-          >, or <a href="https://mail.proton.me/" target="_blank">Proton</a>. If
-          all you have is <code>firstname.lastname@gmail.com</code>, we'll still
-          work with it and do our best to protect you, just be aware that some
-          things will be out of our control at that point (like data leakage to
-          your provider). We also don't store the IP address you signed up from.
-          The newsletter software is set not to record it, and the machine
-          serving the form writes no access logs. Our newsletter emails have no
-          tracking, so we don't log opens, clicks, tracking pixels, etc.
+          >, or
+          <a href="https://mail.proton.me/" target="_blank" rel="noopener"
+            >Proton</a
+          >. If all you have is <code>firstname.lastname@gmail.com</code>, we'll
+          still work with it and do our best to protect you, just be aware that
+          some things will be out of our control at that point (like data
+          leakage to your provider). We also don't store the IP address you
+          signed up from. The newsletter software is set not to record it, and
+          the machine serving the form writes no access logs. Our newsletter
+          emails have no tracking, so we don't log opens, clicks, tracking
+          pixels, etc.
         </p>
 
         <h2>Grant applications</h2>
@@ -279,6 +287,7 @@
           <a
             href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation"
             target="_blank"
+            rel="noopener"
             >GDPR</a
           >, handles the mailing list. That rented server:
         </p>
@@ -321,7 +330,10 @@
         <h2>Stuff we can and can't prove to you</h2>
         <p>
           The source for this website is public and you can read it
-          <a href="https://github.com/DirectActionVillage" target="_blank"
+          <a
+            href="https://github.com/DirectActionVillage"
+            target="_blank"
+            rel="noopener"
             >on our GitHub</a
           >. The code that handles your mailing list data is published there
           too. Realistically you still won't be able to check that the published
@@ -342,6 +354,7 @@
             href="mailto:directactionvillage@proton.me"
             style="text-decoration: none; color: #e5d8b3"
             target="_blank"
+            rel="noopener"
             >directactionvillage@proton.me</a
           >
         </p>
