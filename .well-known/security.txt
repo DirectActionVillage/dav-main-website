@@ -1,0 +1,4 @@
+Contact: mailto:directactionvillage@proton.me
+Expires: 2027-09-23T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://directactionvillage.org/.well-known/security.txt
