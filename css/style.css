@@ -101,6 +101,13 @@ header {
   box-shadow: 10px 10px 14px 1px rgb(0 0 0 / 52%);
 }
 
+/* The default link blue fails contrast on the green, so links take the
+   banner text color and keep the underline as their affordance. */
+
+.landing a:any-link {
+  color: inherit;
+}
+
 .row {
   display: flex;
 }
