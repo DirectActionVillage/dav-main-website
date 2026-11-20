@@ -4,7 +4,7 @@
     "lint-staged": "^17.6.0",
     "markuplint": "^5.4.0",
     "pa11y-ci": "^5.0.0",
-    "postcss-html": "^2.0.0",
+    "postcss-html": "^2.0.1",
     "prettier": "^3.9.10",
     "stylelint": "^17.16.0",
     "stylelint-config-standard": "^40.0.0"
